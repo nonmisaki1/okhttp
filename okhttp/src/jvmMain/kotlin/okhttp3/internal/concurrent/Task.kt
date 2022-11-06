@@ -22,11 +22,11 @@ package okhttp3.internal.concurrent
  * ----------
  *
  * Tasks control their recurrence schedule. The [runOnce] function returns -1L to signify that the
- * task should not be executed again. Otherwise it returns a delay until the next execution.
+ * task should not be executed again. Otherwise, it returns a delay until the next execution.
  *
  * A task has at most one next execution. If the same task instance is scheduled multiple times, the
- * earliest one wins. This applies to both executions scheduled with [TaskRunner.Queue.schedule] and
- * those implied by the returned execution delay.
+ * earliest one wins. This applies to both executions scheduled with [TaskQueue.schedule] and those
+ * implied by the returned execution delay.
  *
  * Cancellation
  * ------------
@@ -37,7 +37,7 @@ package okhttp3.internal.concurrent
  * that is currently executing does not impact the ongoing run, but it does prevent a recurrence
  * from being scheduled.
  *
- * Tasks may opt-out of cancellation with `cancelable = false`. Such tasks will recur until they
+ * Tasks may opt out of cancellation with `cancelable = false`. Such tasks will recur until they
  * decide not to by returning -1L.
  *
  * Task Queues

@@ -175,9 +175,9 @@ class TaskQueue internal constructor(
   }
 
   /**
-   * Schedules immediate execution of [Task.tryCancel] on all currently-enqueued tasks. These calls
-   * will not be made until any currently-executing task has completed. Tasks that return true will
-   * be removed from the execution schedule.
+   * Schedules immediate cancellation of all currently-enqueued tasks. These calls will not be made
+   * until any currently-executing task has completed. Tasks that can be canceled will be removed
+   * from the execution schedule.
    */
   fun cancelAll() {
     this.assertThreadDoesntHoldLock()
